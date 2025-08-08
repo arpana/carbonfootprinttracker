@@ -13,17 +13,20 @@ def main():
             email = input("Email: ")
             password = getpass.getpass("Password: ")
             user = User(email=email, password=password)
-            UserService.register(user)
+            success, message = UserService.register(user)
+            print(message)
 
         elif choice == "2":
             email = input("Email: ")
             password = getpass.getpass("Password: ")
-            UserService.login(email, password)
+            success, message = UserService.login(email, password)
+            print(message)
 
         elif choice == "3":
             email = input("Email: ")
             new_pw = getpass.getpass("New Password: ")
-            UserService.update_password(email, new_pw)
+            success, message = UserService.update_password(email, new_pw)
+            print(message)
 
         elif choice == "4":
             print("👋 Goodbye!")
